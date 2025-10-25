@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anshul Ojha - Professional Portfolio</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" href="https://cdn-icons-png.freepik.com/256/3385/3385342.png?semt=ais_white_label"
+        type="image/png">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            text-decoration: none;
+            list-style: none;
+        }
+
+        .header {
+            position: fixed;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            padding: 35px 12%;
+            background-color: rgb(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 25px;
+            color: white;
+            font-weight: 600;
+            transition: 0.3s ease;
+        }
+
+        .logo:hover {
+            color: orangered;
+            text-shadow: 0, 0, 25px orangered,
+                0, 0, 50px orangered;
+            transform: scale(1.1);
+        }
+
+        .span {
+            color: orangered;
+        }
+
+        .navbar a {
+            font-size: 18px;
+            color: white;
+            font-weight: 500;
+            margin: 0 20px;
+            border-bottom: 3px solid transparent;
+            transition: 0.3s ease;
+        }
+
+        .navbar a:hover,
+        .navbar a:active {
+            color: orangered;
+            border-bottom: 3px;
+        }
+
+        .contact {
+            padding: 10px 22px;
+            background-color: white;
+            color: black;
+            border: 2px solid orangered;
+            border-radius: 8px;
+            font-size: 18px;
+            letter-spacing: 1px;
+            font-weight: 600;
+            transition: 0.3s ease;
+            cursor: pointer;
+        }
+
+        .contact:hover {
+            background-color: orangered;
+            box-shadow: 0 0 25px orangered;
+            color: white;
+        }
+
+        .home {
+            width: 100%;
+            min-height: 100vh;
+            background: rgb(241, 241, 241);
+            display: flex;
+            align-items: center;
+            gap: 7%;
+            padding: 30px 12% 0;
+        }
+
+        .home-content {
+            max-width: 800px;
+        }
+
+        .home-content h1 {
+            font-size: 43px;
+            line-height: 1.2;
+        }
+
+        .home-content h3 {
+            font-size: 42px;
+        }
+
+        .home-content p {
+            font-size: 18px;
+            margin: 25px 0 30px;
+        }
+
+        .btn-box {
+            width: 345px;
+            display: flex;
+            gap: 2em;
+        }
+
+        .btn-1 {
+            padding: 15px 28px;
+            background-color: black;
+            color: white;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            font-size: 18px;
+            letter-spacing: 1px;
+            font-weight: 600;
+            transition: 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-1:hover {
+            background-color: white;
+            color: black;
+            border: 2px solid black;
+        }
+
+        .btn-2 {
+            padding: 15px 28px;
+            background-color: orangered;
+            color: white;
+            border: 2px solid black;
+            border-radius: 8px;
+            font-size: 18px;
+            letter-spacing: 1px;
+            font-weight: 600;
+            transition: 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-2:hover {
+            background-color: white;
+            color: orangered;
+        }
+
+        .img-box img {
+            border-radius: 50%;
+            width: 530px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .img-box img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        ::-webkit-scrollbar {
+            width: 15px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: rgb(0, 0, 0, 0.6);
+            width: 50px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: orangered;
+        }
+
+        .about {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 12% 8%;
+            gap: 10em;
+            background: black;
+        }
+
+        .about-img img {
+            position: relative;
+            width: 530px;
+            border-radius: 50%;
+            box-shadow: 0 10px 25px rgba(255, 69, 0, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .about-img img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(255, 69, 0, 0.5);
+        }
+
+        .about-content h2 {
+            text-align: left;
+            color: white;
+            font-size: 42px;
+        }
+
+        .about-content h3 {
+            font-size: 62px;
+            color: white;
+        }
+
+        .about-content p {
+            color: white;
+            font-size: 20px;
+            margin: 2em 0 3em;
+        }
+
+        #skills-page {
+            background: white;
+            padding: 6% 12%;
+        }
+
+        #skills-page h2 {
+            font-size: 36px;
+            color: #0b0b0b;
+            margin-bottom: 18px;
+        }
+
+        .skills-text {
+            max-width: 900px;
+            background: #f8eded;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            color: #0f172a;
+            line-height: 1.8;
+            border-left: 4px solid orangered;
+        }
+
+        .skills-text ul {
+            margin-left: 18px;
+        }
+
+        #education-page {
+            background: #0b0b0b;
+            padding: 6% 12%;
+            color: #fff;
+        }
+
+        #education-page h2 {
+            font-size: 36px;
+            color: #fff;
+            margin-bottom: 18px;
+        }
+
+        .education-text {
+            max-width: 900px;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid orangered;
+            line-height: 1.8;
+            font-size: 16px;
+            color: #eee;
+        }
+
+        .education-text ul {
+            margin-left: 18px;
+        }
+
+        #projects-page {
+            background: white;
+            padding: 6% 12%;
+        }
+
+        #projects-page h2 {
+            font-size: 78px;
+            color: #0b0b0b;
+
+            margin-top: 0px;
+        }
+
+        .projects-title {
+            font-size: 36px;
+            margin-bottom: 20px;
+            margin-top: 30px;
+            margin-left: 165px;
+        }
+
+        .projects-text {
+            max-width: 925px;
+            max-height: 500px;
+            background: #f8eded;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            color: #0f172a;
+            line-height: 1.8;
+            margin-left: 165px;
+            margin-right: 80px;
+            margin-bottom: 30px;
+            border-left: 4px solid orangered
+        }
+
+        .projects-text ul {
+            margin-left: 18px;
+
+        }
+
+        .contact-form h2 {
+            text-align: center;
+            margin-top: 3em;
+            margin-bottom: 1em;
+            font-size: 36px
+        }
+
+        .contact-me {
+            color: #ffffff;
+        }
+
+        .contact-form {
+            background: #0b0b0b;
+            padding: 6% 12%;
+            color: #fff;
+        }
+
+        .contact-form form {
+            max-width: 50em;
+            margin: 1rem auto;
+            text-align: center;
+            margin-bottom: 3em;
+        }
+
+        .contact-form form .input-box {
+            justify-content: center;
+            flex-wrap: wrap;
+            display: flex;
+        }
+
+        .contact-form form input[type="text"],
+        .contact-form form input[type="email"] {
+            width: 45%;
+            padding: 1.5em;
+            font-size: 18px;
+            color: black;
+            background: rgb(241, 241, 241);
+            border-radius: .8rem;
+            margin: 1rem;
+        }
+
+        .contact-form form textarea {
+            width: 100%;
+            padding: 1.5em;
+            font-size: 18px;
+            color: black;
+            background: rgb(241, 241, 241);
+            border-radius: .8rem;
+            margin: 1rem 0;
+            resize: none;
+        }
+
+        .contact-form form input[type="submit"] {
+            background-color: white;
+            color: black;
+
+            cursor: pointer;
+        }
+
+        .contact-form form input[type="submit"]:hover {
+            background-color: orangered;
+            color: white;
+        }
+
+        .footer {
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            padding: 40px 0;
+            background-color: black;
+        }
+
+        .footer .social {
+            text-align: center;
+            padding-bottom: 25px;
+            color: white;
+        }
+
+        .footer .social a {
+            font-size: 24px;
+            color: white;
+            border: 2px solid orangered;
+            width: 40px;
+            height: 40px;
+            line-height: 38px;
+            display: inline-block;
+            text-align: center;
+            border-radius: 50px;
+            margin: 0 8px;
+            transition: 0.3s ease;
+        }
+
+        .footer .social a:hover {
+            transform: scale(1.2) translateY(-10px);
+            color: orangered;
+            border: 2px solid orangered;
+        }
+
+        .footer ul {
+            margin-top: 0;
+            padding: 0;
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 0;
+            text-align: center;
+        }
+
+        .footer ul li a {
+            color: white;
+            border-bottom: 3px solid transparent;
+            transition: 0.3s ease;
+        }
+
+        .footer ul li a:hover {
+            border-bottom: 3px solid orangered;
+        }
+
+        .footer ul li {
+            display: inline-block;
+            padding: 0 15px;
+        }
+
+        .footer .copyright {
+            margin-top: 15px;
+            text-align: center;
+            font-size: 12px;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <a href="#home" class="logo"><span class="span">Anshul</span>Ojha</a>
+        <nav class="navbar">
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills-page">Skills</a>
+            <a href="#education-page">Education</a>
+            <a href="#project-page">Projects</a>
+        </nav>
+        <a href="#contact" class="contact">Contact Me</a>
+    </header>
+
+    <section class="home" id="home">
+        <div class="home-content">
+            <h3>Hi</h3>
+            <h1>I'm <span>Anshul Ojha <br>
+                </span>A Frontend Developer</h1>
+            <p>I design and develop beautiful, responsive, and intelligent web interfaces.
+            </p>
+            <div class="btn-box">
+                <a href="#project-page"><button class="btn-1">View projects</button></a>
+                <a href="#contact"><button class="btn-2">For Hiring</button></a>
+            </div>
+        </div>
+        <div class="img-box">
+            <img src="https://avatars.githubusercontent.com/u/221400894?v=4" alt="no interconnection">
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="about-img">
+            <img src="https://avatars.githubusercontent.com/u/221400894?v=4" alt="">
+        </div>
+        <div class="about-content">
+            <h2 class="heading">About <span>Me</span></h2>
+            <!-- <h3>Frontend <span>Developer</span></h3> -->
+            <p>I'm Anshul Ojha, I'm a Computer Science student & want to specializing in AI and Web Development.
+                I love solving real-world problems through code and continuous learning.
+                I'm passionate Frontend Developer who loves creating clean, responsive, and user-friendly web
+                interfaces.beautiful design, and smooth user experiences using HTML, CSS, JavaScript. Currently learning
+                interactive UIs and also learning mediater animations & design systems. <br>
+            </p>
+            <a href="#education-page" class="btn-2">Education</a>
+        </div>
+    </section>
+
+    <section id="skills-page" class="section" aria-labelledby="skills-title">
+        <h2 class="skills-title">Skills</h2>
+        <div class="skills-text">
+            <p><strong>Programming Skills :</strong></p>
+            <ul>
+                <li><strong>HTML</strong> : Forms and Input Types, Hyperlinks and Anchors, forms, media elements.</li>
+                <li><strong>CSS</strong> : Styling Forms and Buttons, transitions, CSS Variables (Custom Properties).
+                </li>
+                <li><strong>C</strong> : Understanding of Variables, Data Types, and Operators, Conditional Statements
+                    (if, else, switch) </li>
+                <li><strong>Python</strong> : Conditional statements and loops, Lists, Tuples, Sets, and Dictionaries,
+                    Core Python syntax, indentation, and data types.</li>
+            </ul>
+            <p><strong>Soft Skills :</strong></p>
+            <ul>
+                <li><strong>Communication:</strong> Clear, concise, and effective written & verbal communication.</li>
+                <li><strong>Time Management:</strong> Prioritizes tasks efficiently and meets deadlines consistently.
+                </li>
+                <li><strong>Speaking Confidence:</strong> Presenting ideas clearly and confidently in front of
+                    audiences.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="education-page" class="section" aria-labelledby="education-title">
+        <h2 class="education-title" style="color:white">Education</h2>
+        <div class="education-text">
+            <p><strong>Bachelor of Technology :</strong></p>
+            <ul>
+                <li>Institute: Bansal Institute of engineering & technology, Lucknow</li>
+                <li>Branch: CSE( AI & ML )</li>
+                <li>Years: 2024 - Present</li>
+            </ul>
+
+            <p style="margin-top:12px"><strong>Senior Secondary — Science (Physics, Chemistry, Maths) : </strong></p>
+            <ul>
+                <li>School: Florence Nightingale Inter College, Lucknow</li>
+                <li>Years: 2022 - 2024</li>
+            </ul>
+
+            <p style="margin-top:12px"><strong>High School : </strong></p>
+            <ul>
+                <li>School: Florence Nightingale Inter College, Lucknow</li>
+                <li>Year: 2022</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="project-page" class="section" aria-labelledby="projects-title">
+        <h2 class="projects-title">Projects</h2>
+        <div class="projects-text">
+            <p><strong>WEB DEVELOPMENT :</strong></p>
+            <ul>
+                <li>Resume </li>
+                <li>Login page of Gmail</li>
+                <li>Student Registration Form</li>
+                <li>Small Amazon clone ( Products List )</li>
+                <li>Working Calculator</li>
+            </ul>
+            <p><strong>PYTHON :</strong></p>
+            <ul>
+                <li>Talk To GEMINI</li>
+                <li>Password Generator</li>
+                <li>QR Code Generator</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="contact-form" id="contact">
+        <h2 class="contact-me">Contact <span class="span">Me</span></h2>
+        <form action="#">
+            <div class="input-box">
+                <input type="text" placeholder="Enter Full Name" required>
+                <input type="email" placeholder="Enter Email Address" required>
+            </div>
+            <textarea placeholder="Enter Your Message" rows="6" required></textarea>
+            <input type="submit" value="Send Message" class="btn-1">
+        </form>
+    </section>
+
+    <footer class="footer">
+        <div class="social">
+            <a href="mailto:anshulwork537@gmail.com" title="Gmail"><i class='bx bxl-gmail'></i></a>
+            <a href="tel:+919455151292" title="Contact"><i class='bx bx-phone'></i></a>
+            <a href="https://www.linkedin.com/in/anshul-ojha-535abb302" target="_blank" title="LinkedIn"><i
+                    class='bx bxl-linkedin'></i></a>
+            <a href="https://github.com/anshul118-web" target="_blank" title="GitHub"><i class='bx bxl-github'></i></a>
+            <a href="https://www.instagram.com/anshul_ojha_1008" target="_blank" title="Instagram"><i
+                    class='bx bxl-instagram'></i></a>
+            <a href="https://twitter.com/@Im_anshul1" target="_blank" title="Twitter">
+                <i class='bx bxl-twitter'></i>
+            </a>
+        </div>
+
+        <ul class="list">
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">About Me</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+        </ul>
+
+        <p class="copyright">2025 @Anshul | Ojha</p>
+    </footer>
+</body>
+
+</html>
